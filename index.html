@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trade Lab OS</title>
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="/journalPWA/manifest.json">
 <meta name="theme-color" content="#0f172a">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,sans-serif}
@@ -50,7 +50,7 @@ input[type=file]{padding:12px}
       <button class="tbtn" data-cmd="insertOrderedList">OList</button>
       <button class="tbtn" data-cmd="removeFormat">Clear</button>
     </div>
-    <div id="editor" contenteditable="true"><h2>Confluence</h2><div>Start typing...</div></div>
+    <div id="editor" contenteditable="true"><h2>JOURNAL</h2><div></div></div>
   </div>
   <div class="card">
     <div style="padding:12px;font-weight:700">Chart Screenshots</div>
@@ -71,7 +71,7 @@ const saveStatus=document.getElementById('saveStatus');
 const shotInput=document.getElementById('shotInput');
 const shotPreview=document.getElementById('shotPreview');
 let screenshots=[];
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/journalPWA/sw.js', {scope: '/journalPWA/'})}
 const today=new Date().toISOString().split('T')[0];
 journalDate.value=today;
 function key(){return 'tradelab_'+journalDate.value;}
